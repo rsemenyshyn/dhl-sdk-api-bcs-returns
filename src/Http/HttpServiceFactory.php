@@ -24,7 +24,7 @@ use Http\Discovery\Exception\NotFoundException;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\Authentication\BasicAuth;
 use Http\Message\Formatter\FullHttpMessageFormatter;
-use Psr\Http\Client\ClientInterface;
+use Http\Client\HttpClient;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -36,11 +36,11 @@ use Psr\Log\LoggerInterface;
 class HttpServiceFactory implements ServiceFactoryInterface
 {
     /**
-     * @var ClientInterface
+     * @var HttpClient
      */
     private $httpClient;
 
-    public function __construct(ClientInterface $httpClient)
+    public function __construct(HttpClient $httpClient)
     {
         $this->httpClient = $httpClient;
     }
