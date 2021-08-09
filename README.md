@@ -8,7 +8,7 @@ The DHL Paket Retoure API SDK package offers an interface to the following web s
 
 ### System Requirements
 
-- PHP 7.1+ with JSON extension
+- PHP 5.6+ with JSON extension
 
 ### Package Requirements
 
@@ -37,13 +37,13 @@ The DHL Paket Retoure API SDK package offers an interface to the following web s
 ## Installation
 
 ```bash
-$ composer require dhl/sdk-api-bcs-returns
+$ composer require rsemenyshyn/dhl-sdk-api-returns
 ```
 
 ## Uninstallation
 
 ```bash
-$ composer remove dhl/sdk-api-bcs-returns
+$ composer remove rsemenyshyn/dhl-sdk-api-returns
 ```
 
 ## Testing
