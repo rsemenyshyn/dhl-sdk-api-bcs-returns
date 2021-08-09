@@ -22,7 +22,7 @@
         "php-http/httplug-bundle": "^1.15.2",
         "php-http/logger-plugin": "^1.0.0",
         "rsemenyshyn/http-factory": "*",
-        "rsemenyshyn/php-http-message-factory-psr17": "^1.0.1",
+        "rsemenyshyn/php-http-message-factory-psr17": "*",
         "psr/http-client-implementation": "^1.0.0",
         "psr/http-factory-implementation": "^1.0.0",
         "psr/http-message": "^1.0.0",
