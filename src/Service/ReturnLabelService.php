@@ -16,9 +16,9 @@ use Dhl\Sdk\Paket\Retoure\Exception\ServiceExceptionFactory;
 use Dhl\Sdk\Paket\Retoure\Service\ReturnLabelService\Confirmation;
 use Dhl\Sdk\Paket\Retoure\Serializer\JsonSerializer;
 use Psr\Http\Client\ClientExceptionInterface;
-use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
+use Http\Client\HttpClient;
 
 /**
  * Class ReturnLabelService
@@ -31,7 +31,7 @@ class ReturnLabelService implements ReturnLabelServiceInterface
     private const OPERATION_BOOK_LABEL = 'returns/';
 
     /**
-     * @var ClientInterface
+     * @var HttpClient
      */
     private $client;
 
@@ -56,7 +56,7 @@ class ReturnLabelService implements ReturnLabelServiceInterface
     private $streamFactory;
 
     public function __construct(
-        ClientInterface $client,
+        HttpClient $client,
         string $baseUrl,
         JsonSerializer $serializer,
         RequestFactoryInterface $requestFactory,
