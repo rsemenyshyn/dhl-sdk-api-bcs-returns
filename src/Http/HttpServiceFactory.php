@@ -26,7 +26,7 @@ use Http\Message\Authentication\BasicAuth;
 use Http\Message\Formatter\FullHttpMessageFormatter;
 use Http\Client\HttpClient;
 use PhpExtended\HttpMessage\RequestFactory;
-use PhpExtended\HttpMessage\ResponseFactory;
+use PhpExtended\HttpMessage\StreamFactory;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -73,7 +73,7 @@ class HttpServiceFactory implements ServiceFactoryInterface
 
         try {
             $requestFactory = new RequestFactory();
-            $streamFactory = new ResponseFactory();
+            $streamFactory = new StreamFactory();
         } catch (NotFoundException $exception) {
             throw ServiceExceptionFactory::create($exception);
         }
