@@ -1,5 +1,5 @@
 {
-    "name": "dhl/sdk-api-bcs-returns",
+    "name": "rsemenyshyn/dhl-sdk-api-returns",
     "description": "DHL Paket Retoure API SDK",
     "license": "MIT",
     "keywords": [
@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^7.1.0",
+        "php": ">=5.6",
         "ext-json": "*",
         "php-http/discovery": "^1.0.0",
         "php-http/httplug": "^2.0.0",
