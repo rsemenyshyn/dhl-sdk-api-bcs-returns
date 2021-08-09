@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Model\RequestType;
 
 /**
@@ -69,41 +67,41 @@ class CustomsDocument implements \JsonSerializable
         $this->positions = $positions;
     }
 
-    public function setOriginalShipmentNumber(?string $originalShipmentNumber): self
+    public function setOriginalShipmentNumber($originalShipmentNumber = '')
     {
         $this->originalShipmentNumber = $originalShipmentNumber;
 
         return $this;
     }
 
-    public function setOriginalOperator(?string $originalOperator): self
+    public function setOriginalOperator($originalOperator = '')
     {
         $this->originalOperator = $originalOperator;
 
         return $this;
     }
 
-    public function setAccompanyingDocument(?string $accompanyingDocument): self
+    public function setAccompanyingDocument($accompanyingDocument = '')
     {
         $this->acommpanyingDocument = $accompanyingDocument;
 
         return $this;
     }
 
-    public function setOriginalInvoiceNumber(?string $originalInvoiceNumber): self
+    public function setOriginalInvoiceNumber($originalInvoiceNumber = '')
     {
         $this->originalInvoiceNumber = $originalInvoiceNumber;
 
         return $this;
     }
-    public function setOriginalInvoiceDate(?string $originalInvoiceDate): self
+    public function setOriginalInvoiceDate($originalInvoiceDate = '')
     {
         $this->originalInvoiceDate = $originalInvoiceDate;
 
         return $this;
     }
 
-    public function setComment(?string $comment): self
+    public function setComment($comment = '')
     {
         $this->comment = $comment;
 
@@ -115,7 +113,7 @@ class CustomsDocument implements \JsonSerializable
      *
      * @return mixed[] Serializable object properties
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return get_object_vars($this);
     }

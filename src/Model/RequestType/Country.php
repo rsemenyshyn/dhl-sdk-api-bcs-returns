@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Model\RequestType;
 
 /**
@@ -31,19 +29,19 @@ class Country implements \JsonSerializable
      */
     private $state;
 
-    public function __construct(string $countryISOCode)
+    public function __construct($countryISOCode)
     {
         $this->countryISOCode = $countryISOCode;
     }
 
-    public function setCountry(?string $country): self
+    public function setCountry($country = '')
     {
         $this->country = $country;
 
         return $this;
     }
 
-    public function setState(?string $state): self
+    public function setState($state = '')
     {
         $this->state = $state;
 
@@ -55,7 +53,7 @@ class Country implements \JsonSerializable
      *
      * @return mixed[] Serializable object properties
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return get_object_vars($this);
     }

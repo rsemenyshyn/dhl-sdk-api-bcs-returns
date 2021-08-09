@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Service\ReturnLabelService;
 
 use Dhl\Sdk\Paket\Retoure\Api\Data\ConfirmationInterface;
@@ -50,22 +48,22 @@ class Confirmation implements ConfirmationInterface
         $this->routingCode = $routingCode;
     }
 
-    public function getShipmentNumber(): string
+    public function getShipmentNumber()
     {
         return $this->shipmentNumber;
     }
 
-    public function getLabelData(): string
+    public function getLabelData()
     {
         return $this->labelData;
     }
 
-    public function getQrLabelData(): string
+    public function getQrLabelData()
     {
         return $this->qrLabelData;
     }
 
-    public function getRoutingCode(): string
+    public function getRoutingCode()
     {
         return $this->routingCode;
     }

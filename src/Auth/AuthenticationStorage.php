@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Auth;
 
 use Dhl\Sdk\Paket\Retoure\Api\Data\AuthenticationStorageInterface;
@@ -38,34 +36,29 @@ class AuthenticationStorage implements AuthenticationStorageInterface
      */
     private $signature;
 
-    public function __construct(
-        string $applicationId,
-        string $applicationToken,
-        string $user,
-        string $signature
-    ) {
+    public function __construct($applicationId, $applicationToken, $user, $signature) {
         $this->applicationId = $applicationId;
         $this->applicationToken = $applicationToken;
         $this->user = $user;
         $this->signature = $signature;
     }
 
-    public function getApplicationId(): string
+    public function getApplicationId()
     {
         return $this->applicationId;
     }
 
-    public function getApplicationToken(): string
+    public function getApplicationToken()
     {
         return $this->applicationToken;
     }
 
-    public function getUser(): string
+    public function getUser()
     {
         return $this->user;
     }
 
-    public function getSignature(): string
+    public function getSignature()
     {
         return $this->signature;
     }

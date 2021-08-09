@@ -4,12 +4,8 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Http;
 
-use Dhl\Sdk\Paket\Retoure\Api\Data\AuthenticationStorageInterface;
-use Dhl\Sdk\Paket\Retoure\Api\ReturnLabelServiceInterface;
 use Dhl\Sdk\Paket\Retoure\Api\ServiceFactoryInterface;
 use Dhl\Sdk\Paket\Retoure\Exception\ServiceExceptionFactory;
 use Dhl\Sdk\Paket\Retoure\Http\ClientPlugin\ReturnLabelErrorPlugin;
@@ -42,16 +38,12 @@ class HttpServiceFactory implements ServiceFactoryInterface
      */
     private $httpClient;
 
-    public function __construct(HttpClient $httpClient)
+    public function __construct($httpClient)
     {
         $this->httpClient = $httpClient;
     }
 
-    public function createReturnLabelService(
-        AuthenticationStorageInterface $authStorage,
-        LoggerInterface $logger,
-        bool $sandboxMode = false
-    ): ReturnLabelServiceInterface {
+    public function createReturnLabelService($authStorage, $logger, $sandboxMode = false) {
         $appAuth = new BasicAuth($authStorage->getApplicationId(), $authStorage->getApplicationToken());
         $userAuth = base64_encode($authStorage->getUser() . ':' . $authStorage->getSignature());
         $headers = [

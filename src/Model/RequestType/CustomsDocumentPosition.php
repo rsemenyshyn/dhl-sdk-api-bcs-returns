@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Model\RequestType;
 
 /**
@@ -65,14 +63,14 @@ class CustomsDocumentPosition implements \JsonSerializable
         $this->articleReference = $articleReference;
     }
 
-    public function setOriginCountry(?string $originCountry): self
+    public function setOriginCountry($originCountry = '')
     {
         $this->originCountry = $originCountry;
 
         return $this;
     }
 
-    public function setTariffNumber(?string $tariffNumber): self
+    public function setTariffNumber($tariffNumber = '')
     {
         $this->tarifNumber = $tariffNumber;
 
@@ -84,7 +82,7 @@ class CustomsDocumentPosition implements \JsonSerializable
      *
      * @return mixed[] Serializable object properties
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return get_object_vars($this);
     }

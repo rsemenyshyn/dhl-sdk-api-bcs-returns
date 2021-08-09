@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Model;
 
 use Dhl\Sdk\Paket\Retoure\Exception\RequestValidatorException;
@@ -18,13 +16,13 @@ use Dhl\Sdk\Paket\Retoure\Exception\RequestValidatorException;
  */
 class ReturnLabelRequestValidator
 {
-    public const MSG_RECEIVER_ID_REQUIRED = 'Receiver ID is required.';
-    public const MSG_SHIPPER_ADDRESS_REQUIRED = 'Shipper address is required.';
-    public const MSG_SHIPPER_ADDRESS_FIELD_REQUIRED = "'%s' is required for the shipper address.";
-    public const MSG_COUNTRY_ISO_INVALID = 'Only ISO 3166-1 alpha-3 country codes are allowed, e.g. "DEU".';
-    public const MSG_CURRENCY_INVALID = 'Only EUR, GBP or CHF currency is allowed.';
-    public const MSG_CUSTOMS_POSITIONS_COUNT = 'Between 1 and 5 customs items must be added.';
-    public const MSG_CUSTOMS_POSITION_FIELD_REQUIRED = "'%s' is required for the customs item.";
+    const MSG_RECEIVER_ID_REQUIRED = 'Receiver ID is required.';
+    const MSG_SHIPPER_ADDRESS_REQUIRED = 'Shipper address is required.';
+    const MSG_SHIPPER_ADDRESS_FIELD_REQUIRED = "'%s' is required for the shipper address.";
+    const MSG_COUNTRY_ISO_INVALID = 'Only ISO 3166-1 alpha-3 country codes are allowed, e.g. "DEU".';
+    const MSG_CURRENCY_INVALID = 'Only EUR, GBP or CHF currency is allowed.';
+    const MSG_CUSTOMS_POSITIONS_COUNT = 'Between 1 and 5 customs items must be added.';
+    const MSG_CUSTOMS_POSITION_FIELD_REQUIRED = "'%s' is required for the customs item.";
 
     /**
      * Validate request data before sending it to the web service.
@@ -33,7 +31,7 @@ class ReturnLabelRequestValidator
      *
      * @throws RequestValidatorException
      */
-    public static function validate(array $data): void
+    public static function validate(array $data)
     {
         if (empty($data['receiverId'])) {
             throw new RequestValidatorException(self::MSG_RECEIVER_ID_REQUIRED);

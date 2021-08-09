@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Service;
 
 use Dhl\Sdk\Paket\Retoure\Api\Data\ConfirmationInterface;
@@ -28,7 +26,7 @@ use Http\Client\HttpClient;
  */
 class ReturnLabelService implements ReturnLabelServiceInterface
 {
-    private const OPERATION_BOOK_LABEL = 'returns/';
+    const OPERATION_BOOK_LABEL = 'returns/';
 
     /**
      * @var HttpClient
@@ -69,7 +67,7 @@ class ReturnLabelService implements ReturnLabelServiceInterface
         $this->streamFactory = $streamFactory;
     }
 
-    public function bookLabel(\JsonSerializable $returnOrder): ConfirmationInterface
+    public function bookLabel(\JsonSerializable $returnOrder)
     {
         $uri = sprintf('%s/%s', $this->baseUrl, self::OPERATION_BOOK_LABEL);
 
@@ -87,7 +85,7 @@ class ReturnLabelService implements ReturnLabelServiceInterface
             throw ServiceExceptionFactory::createDetailedServiceException($exception);
         } catch (ClientExceptionInterface $exception) {
             throw ServiceExceptionFactory::createServiceException($exception);
-        } catch (\Throwable $exception) {
+        } catch (\Exception $exception) {
             throw ServiceExceptionFactory::create($exception);
         }
 

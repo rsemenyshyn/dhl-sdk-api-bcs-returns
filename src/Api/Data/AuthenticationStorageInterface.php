@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Api\Data;
 
 /**
@@ -17,11 +15,11 @@ namespace Dhl\Sdk\Paket\Retoure\Api\Data;
  */
 interface AuthenticationStorageInterface
 {
-    public function getApplicationId(): string;
+    public function getApplicationId();
 
-    public function getApplicationToken(): string;
+    public function getApplicationToken();
 
-    public function getUser(): string;
+    public function getUser();
 
-    public function getSignature(): string;
+    public function getSignature();
 }

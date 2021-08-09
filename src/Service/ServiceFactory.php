@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Service;
 
 use Dhl\Sdk\Paket\Retoure\Api\Data\AuthenticationStorageInterface;
@@ -25,11 +23,7 @@ use Psr\Log\LoggerInterface;
  */
 class ServiceFactory implements ServiceFactoryInterface
 {
-    public function createReturnLabelService(
-        AuthenticationStorageInterface $authStorage,
-        LoggerInterface $logger,
-        bool $sandboxMode = false
-    ): ReturnLabelServiceInterface {
+    public function createReturnLabelService($authStorage, $logger, $sandboxMode = false) {
         try {
             $httpClient = HttpClientDiscovery::find();
         } catch (NotFoundException $exception) {

@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Exception;
 
 use Psr\Http\Client\ClientExceptionInterface;
@@ -26,7 +24,7 @@ class ServiceExceptionFactory
      * @param \Throwable $exception
      * @return ServiceException
      */
-    public static function create(\Throwable $exception): ServiceException
+    public static function create($exception)
     {
         return new ServiceException($exception->getMessage(), $exception->getCode(), $exception);
     }
@@ -37,9 +35,9 @@ class ServiceExceptionFactory
      * @param ClientExceptionInterface $exception
      * @return ServiceException
      */
-    public static function createServiceException(ClientExceptionInterface $exception): ServiceException
+    public static function createServiceException(ClientExceptionInterface $exception)
     {
-        if (!$exception instanceof \Throwable) {
+        if (!$exception instanceof \Exception) {
             return new ServiceException('Unknown exception occurred', 0);
         }
 
@@ -52,7 +50,7 @@ class ServiceExceptionFactory
      * @param \Throwable $exception
      * @return DetailedServiceException
      */
-    public static function createDetailedServiceException(\Throwable $exception): DetailedServiceException
+    public static function createDetailedServiceException($exception)
     {
         return new DetailedServiceException($exception->getMessage(), $exception->getCode(), $exception);
     }
@@ -63,7 +61,7 @@ class ServiceExceptionFactory
      * @param \Throwable $exception
      * @return AuthenticationException
      */
-    public static function createAuthenticationException(\Throwable $exception): AuthenticationException
+    public static function createAuthenticationException($exception)
     {
         return new AuthenticationException($exception->getMessage(), $exception->getCode(), $exception);
     }

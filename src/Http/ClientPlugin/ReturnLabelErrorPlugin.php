@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Http\ClientPlugin;
 
 use Dhl\Sdk\Paket\Retoure\Exception\AuthenticationErrorException;
@@ -34,7 +32,7 @@ final class ReturnLabelErrorPlugin implements Plugin
      *
      * @return bool
      */
-    private function isDetailedErrorResponse(ResponseInterface $response): bool
+    private function isDetailedErrorResponse(ResponseInterface $response)
     {
         $contentTypes = $response->getHeader('Content-Type');
         return $contentTypes && ($contentTypes[0] === 'application/json');
@@ -47,7 +45,7 @@ final class ReturnLabelErrorPlugin implements Plugin
      * @param string $defaultMessage
      * @return string
      */
-    private function createErrorMessage(array $responseData, string $defaultMessage): string
+    private function createErrorMessage(array $responseData, $defaultMessage)
     {
         if (isset($responseData['statusCode'], $responseData['statusText'])) {
             return sprintf('%s (Error %s)', $responseData['statusText'], $responseData['statusCode']);
@@ -67,7 +65,7 @@ final class ReturnLabelErrorPlugin implements Plugin
      *
      * @return Promise Resolves a PSR-7 Response or fails with an Http\Client\Exception (The same as HttpAsyncClient).
      */
-    public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
+    public function handleRequest(RequestInterface $request, callable $next, callable $first)
     {
         /** @var Promise $promise */
         $promise = $next($request);

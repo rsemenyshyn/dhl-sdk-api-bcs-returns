@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Api;
 
 use Dhl\Sdk\Paket\Retoure\Api\Data\ConfirmationInterface;
@@ -33,5 +31,5 @@ interface ReturnLabelServiceInterface
      * @throws DetailedServiceException
      * @throws ServiceException
      */
-    public function bookLabel(\JsonSerializable $returnOrder): ConfirmationInterface;
+    public function bookLabel(\JsonSerializable $returnOrder);
 }

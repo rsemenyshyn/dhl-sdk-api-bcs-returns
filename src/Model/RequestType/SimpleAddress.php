@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Model\RequestType;
 
 /**
@@ -70,21 +68,21 @@ class SimpleAddress implements \JsonSerializable
         $this->city = $city;
     }
 
-    public function setCountry(?Country $country): self
+    public function setCountry($country = null)
     {
         $this->country = $country;
 
         return $this;
     }
 
-    public function setName2(?string $name2): self
+    public function setName2($name2 = '')
     {
         $this->name2 = $name2;
 
         return $this;
     }
 
-    public function setName3(?string $name3): self
+    public function setName3($name3 = '')
     {
         $this->name3 = $name3;
 
@@ -96,7 +94,7 @@ class SimpleAddress implements \JsonSerializable
      *
      * @return mixed[] Serializable object properties
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return get_object_vars($this);
     }

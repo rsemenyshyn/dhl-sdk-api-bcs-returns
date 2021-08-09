@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Model;
 
 use Dhl\Sdk\Paket\Retoure\Api\ReturnLabelRequestBuilderInterface;
@@ -28,41 +26,34 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
      */
     private $data = [];
 
-    public function setAccountDetails(
-        string $receiverId,
-        ?string $billingNumber = null
-    ): ReturnLabelRequestBuilderInterface {
+    public function setAccountDetails($receiverId, $billingNumber = null) {
         $this->data['receiverId'] = $receiverId;
         $this->data['billingNumber'] = $billingNumber;
-
         return $this;
     }
 
-    public function setShipmentReference(string $shipmentReference): ReturnLabelRequestBuilderInterface
+    public function setShipmentReference($shipmentReference)
     {
         $this->data['shipmentReference'] = $shipmentReference;
 
         return $this;
     }
 
-    public function setDocumentTypePdf(): ReturnLabelRequestBuilderInterface
+    public function setDocumentTypePdf()
     {
         $this->data['returnDocumentType'] = ReturnOrder::DOCUMENT_TYPE_PDF;
 
         return $this;
     }
 
-    public function setDocumentTypeQr(): ReturnLabelRequestBuilderInterface
+    public function setDocumentTypeQr()
     {
         $this->data['returnDocumentType'] = ReturnOrder::DOCUMENT_TYPE_QR;
 
         return $this;
     }
 
-    public function setPackageDetails(
-        ?int $weightInGrams = null,
-        ?float $amount = null
-    ): ReturnLabelRequestBuilderInterface {
+    public function setPackageDetails($weightInGrams = null, $amount = null) {
         $this->data['package']['weight'] = $weightInGrams;
         $this->data['package']['amount'] = $amount;
 
@@ -70,17 +61,17 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
     }
 
     public function setShipperAddress(
-        string $name,
-        string $countryCode,
-        string $postalCode,
-        string $city,
-        string $streetName,
-        string $streetNumber,
-        ?string $company = null,
-        ?string $nameAddition = null,
-        ?string $state = null,
-        ?string $countryName = null
-    ): ReturnLabelRequestBuilderInterface {
+        $name,
+        $countryCode,
+        $postalCode,
+        $city,
+        $streetName,
+        $streetNumber,
+        $company = null,
+        $nameAddition = null,
+        $state = null,
+        $countryName = null
+    ) {
         $this->data['shipper']['address']['name'] = $name;
         $this->data['shipper']['address']['countryCode'] = $countryCode;
         $this->data['shipper']['address']['postalCode'] = $postalCode;
@@ -95,7 +86,7 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
         return $this;
     }
 
-    public function setShipperContact(string $email, ?string $phoneNumber = null): ReturnLabelRequestBuilderInterface
+    public function setShipperContact($email, $phoneNumber = null)
     {
         $this->data['shipper']['contact']['email'] = $email;
         $this->data['shipper']['contact']['phoneNumber'] = $phoneNumber;
@@ -104,14 +95,14 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
     }
 
     public function setCustomsDetails(
-        string $currency,
-        ?string $originalShipmentNumber = null,
-        ?string $originalOperator = null,
-        ?string $accompanyingDocument = null,
-        ?string $originalInvoiceNumber = null,
-        ?string $originalInvoiceDate = null,
-        ?string $comment = null
-    ): ReturnLabelRequestBuilderInterface {
+        $currency,
+        $originalShipmentNumber = null,
+        $originalOperator = null,
+        $accompanyingDocument = null,
+        $originalInvoiceNumber = null,
+        $originalInvoiceDate = null,
+        $comment = null
+    ) {
         $this->data['customsDetails']['currency'] = $currency;
         $this->data['customsDetails']['originalShipmentNumber'] = $originalShipmentNumber;
         $this->data['customsDetails']['originalOperator'] = $originalOperator;
@@ -124,14 +115,14 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
     }
 
     public function addCustomsItem(
-        int $qty,
-        string $description,
-        float $value,
-        int $weightInGrams,
-        string $sku,
-        ?string $countryOfOrigin = null,
-        ?string $tariffNumber = null
-    ): ReturnLabelRequestBuilderInterface {
+        $qty,
+        $description,
+        $value,
+        $weightInGrams,
+        $sku,
+        $countryOfOrigin = null,
+        $tariffNumber = null
+    ) {
         $this->data['customsDetails']['items'][] = [
             'qty' => $qty,
             'description' => $description,
@@ -145,7 +136,7 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
         return $this;
     }
 
-    public function create(): \JsonSerializable
+    public function create()
     {
         ReturnLabelRequestValidator::validate($this->data);
 
@@ -195,14 +186,14 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
 
         $returnOrder = new ReturnOrder($this->data['receiverId'], $senderAddress);
         $returnOrder->setCustomerReference($this->data['billingNumber']);
-        $returnOrder->setShipmentReference($this->data['shipmentReference'] ?? null);
-        $returnOrder->setReturnDocumentType($this->data['returnDocumentType'] ?? ReturnOrder::DOCUMENT_TYPE_BOTH);
+        $returnOrder->setShipmentReference($this->data['shipmentReference'] ? $this->data['shipmentReference'] : null);
+        $returnOrder->setReturnDocumentType($this->data['returnDocumentType'] ? $this->data['returnDocumentType'] : ReturnOrder::DOCUMENT_TYPE_BOTH);
 
-        $returnOrder->setEmail($this->data['shipper']['contact']['email'] ?? null);
-        $returnOrder->setTelephoneNumber($this->data['shipper']['contact']['phoneNumber'] ?? null);
+        $returnOrder->setEmail($this->data['shipper']['contact']['email'] ? $this->data['shipper']['contact']['email'] : null);
+        $returnOrder->setTelephoneNumber($this->data['shipper']['contact']['phoneNumber'] ? $this->data['shipper']['contact']['phoneNumber'] : null);
 
-        $returnOrder->setValue($this->data['package']['amount'] ?? null);
-        $returnOrder->setWeightInGrams($this->data['package']['weight'] ?? null);
+        $returnOrder->setValue($this->data['package']['amount'] ? $this->data['package']['amount'] : null);
+        $returnOrder->setWeightInGrams($this->data['package']['weight'] ? $this->data['package']['weight'] : null);
         $returnOrder->setCustomsDocument($customsDocument);
 
         $this->data = [];

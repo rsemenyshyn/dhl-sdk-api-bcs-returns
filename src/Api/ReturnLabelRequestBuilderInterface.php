@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Api;
 
 use Dhl\Sdk\Paket\Retoure\Exception\RequestValidatorException;
@@ -30,10 +28,7 @@ interface ReturnLabelRequestBuilderInterface
      * @param string|null $billingNumber Billing Number (Abrechnungsnummer)
      * @return ReturnLabelRequestBuilderInterface
      */
-    public function setAccountDetails(
-        string $receiverId,
-        ?string $billingNumber = null
-    ): ReturnLabelRequestBuilderInterface;
+    public function setAccountDetails($receiverId, $billingNumber = null);
 
     /**
      * Set shipment reference (optional).
@@ -44,7 +39,7 @@ interface ReturnLabelRequestBuilderInterface
      * @param string $shipmentReference
      * @return ReturnLabelRequestBuilderInterface
      */
-    public function setShipmentReference(string $shipmentReference): ReturnLabelRequestBuilderInterface;
+    public function setShipmentReference($shipmentReference);
 
     /**
      * Request only PDF shipping label (optional).
@@ -53,7 +48,7 @@ interface ReturnLabelRequestBuilderInterface
      *
      * @return ReturnLabelRequestBuilderInterface
      */
-    public function setDocumentTypePdf(): ReturnLabelRequestBuilderInterface;
+    public function setDocumentTypePdf();
 
     /**
      * Request only QR code image (optional).
@@ -62,7 +57,7 @@ interface ReturnLabelRequestBuilderInterface
      *
      * @return ReturnLabelRequestBuilderInterface
      */
-    public function setDocumentTypeQr(): ReturnLabelRequestBuilderInterface;
+    public function setDocumentTypeQr();
 
     /**
      * Set package related data (optional).
@@ -72,10 +67,7 @@ interface ReturnLabelRequestBuilderInterface
      *
      * @return ReturnLabelRequestBuilderInterface
      */
-    public function setPackageDetails(
-        ?int $weightInGrams = null,
-        ?float $amount = null
-    ): ReturnLabelRequestBuilderInterface;
+    public function setPackageDetails($weightInGrams = null, $amount = null);
 
     /**
      * Set the sender of the return shipment (the consumer).
@@ -93,17 +85,17 @@ interface ReturnLabelRequestBuilderInterface
      * @return ReturnLabelRequestBuilderInterface
      */
     public function setShipperAddress(
-        string $name,
-        string $countryCode,
-        string $postalCode,
-        string $city,
-        string $streetName,
-        string $streetNumber,
-        ?string $company = null,
-        ?string $nameAddition = null,
-        ?string $state = null,
-        ?string $countryName = null
-    ): ReturnLabelRequestBuilderInterface;
+        $name,
+        $countryCode,
+        $postalCode,
+        $city,
+        $streetName,
+        $streetNumber,
+        $company = null,
+        $nameAddition = null,
+        $state = null,
+        $countryName = null
+    );
 
     /**
      * Set contact data of the sender (the consumer, optional).
@@ -112,7 +104,7 @@ interface ReturnLabelRequestBuilderInterface
      * @param string|null $phoneNumber
      * @return ReturnLabelRequestBuilderInterface
      */
-    public function setShipperContact(string $email, ?string $phoneNumber = null): ReturnLabelRequestBuilderInterface;
+    public function setShipperContact($email, $phoneNumber = null);
 
     /**
      * Set customs details, mandatory if customs form ("CN23") is required.
@@ -127,14 +119,14 @@ interface ReturnLabelRequestBuilderInterface
      * @return ReturnLabelRequestBuilderInterface
      */
     public function setCustomsDetails(
-        string $currency,
-        ?string $originalShipmentNumber = null,
-        ?string $originalOperator = null,
-        ?string $accompanyingDocument = null,
-        ?string $originalInvoiceNumber = null,
-        ?string $originalInvoiceDate = null,
-        ?string $comment = null
-    ): ReturnLabelRequestBuilderInterface;
+        $currency,
+        $originalShipmentNumber = null,
+        $originalOperator = null,
+        $accompanyingDocument = null,
+        $originalInvoiceNumber = null,
+        $originalInvoiceDate = null,
+        $comment = null
+    );
 
     /**
      * Add an item to be declared, mandatory if customs form ("CN23") is required.
@@ -149,14 +141,14 @@ interface ReturnLabelRequestBuilderInterface
      * @return ReturnLabelRequestBuilderInterface
      */
     public function addCustomsItem(
-        int $qty,
-        string $description,
-        float $value,
-        int $weightInGrams,
-        string $sku,
-        ?string $countryOfOrigin = null,
-        ?string $tariffNumber = null
-    ): ReturnLabelRequestBuilderInterface;
+        $qty,
+        $description,
+        $value,
+        $weightInGrams,
+        $sku,
+        $countryOfOrigin = null,
+        $tariffNumber = null
+    );
 
     /**
      * Create the return label request and reset the builder data.
@@ -165,5 +157,5 @@ interface ReturnLabelRequestBuilderInterface
      *
      * @throws RequestValidatorException
      */
-    public function create(): \JsonSerializable;
+    public function create();
 }

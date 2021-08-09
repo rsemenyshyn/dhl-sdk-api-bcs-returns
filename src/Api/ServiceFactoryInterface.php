@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Api;
 
 use Dhl\Sdk\Paket\Retoure\Api\Data\AuthenticationStorageInterface;
@@ -19,10 +17,9 @@ use Psr\Log\LoggerInterface;
  * @author Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-interface ServiceFactoryInterface
-{
-    public const BASE_URL_PRODUCTION = 'https://cig.dhl.de/services/production/rest';
-    public const BASE_URL_SANDBOX = 'https://cig.dhl.de/services/sandbox/rest';
+interface ServiceFactoryInterface {
+    const BASE_URL_PRODUCTION = 'https://cig.dhl.de/services/production/rest';
+    const BASE_URL_SANDBOX = 'https://cig.dhl.de/services/sandbox/rest';
 
     /**
      * Create the service able to perform return shipment label requests.
@@ -35,9 +32,5 @@ interface ServiceFactoryInterface
      *
      * @throws ServiceException
      */
-    public function createReturnLabelService(
-        AuthenticationStorageInterface $authStorage,
-        LoggerInterface $logger,
-        bool $sandboxMode = false
-    ): ReturnLabelServiceInterface;
+    public function createReturnLabelService($authStorage, $logger, $sandboxMode = false);
 }

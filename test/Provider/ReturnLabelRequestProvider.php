@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Test\Provider;
 
 use Dhl\Sdk\Paket\Retoure\Exception\RequestValidatorException;

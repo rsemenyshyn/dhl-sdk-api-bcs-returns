@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Serializer;
 
 /**
@@ -18,7 +16,7 @@ namespace Dhl\Sdk\Paket\Retoure\Serializer;
  */
 class JsonSerializer
 {
-    public function encode(\JsonSerializable $request): string
+    public function encode(\JsonSerializable $request)
     {
         // remove empty entries from serialized data (after all objects were converted to array)
         $payload = (string) \json_encode($request);
@@ -34,10 +32,10 @@ class JsonSerializer
      * @param mixed[] $element
      * @return mixed[]
      */
-    private function filterRecursive(array $element): array
+    private function filterRecursive(array $element)
     {
         // Filter null and empty strings
-        $filterFunction = static function ($entry): bool {
+        $filterFunction = static function ($entry) {
             return ($entry !== null) && ($entry !== '') && ($entry !== []);
         };
 
@@ -54,7 +52,7 @@ class JsonSerializer
      * @param string $jsonResponse
      * @return string[]
      */
-    public function decode(string $jsonResponse): array
+    public function decode(string $jsonResponse)
     {
         return \json_decode($jsonResponse, true);
     }

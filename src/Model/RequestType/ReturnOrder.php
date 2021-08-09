@@ -4,8 +4,6 @@
  * See LICENSE.md for license details.
  */
 
-declare(strict_types=1);
-
 namespace Dhl\Sdk\Paket\Retoure\Model\RequestType;
 
 /**
@@ -16,9 +14,9 @@ namespace Dhl\Sdk\Paket\Retoure\Model\RequestType;
  */
 class ReturnOrder implements \JsonSerializable
 {
-    public const DOCUMENT_TYPE_PDF = 'SHIPMENT_LABEL';
-    public const DOCUMENT_TYPE_QR = 'QR_LABEL';
-    public const DOCUMENT_TYPE_BOTH = 'BOTH';
+    const DOCUMENT_TYPE_PDF = 'SHIPMENT_LABEL';
+    const DOCUMENT_TYPE_QR = 'QR_LABEL';
+    const DOCUMENT_TYPE_BOTH = 'BOTH';
 
     /**
      * @var string
@@ -78,56 +76,56 @@ class ReturnOrder implements \JsonSerializable
         $this->senderAddress = $senderAddress;
     }
 
-    public function setCustomerReference(?string $customerReference): self
+    public function setCustomerReference($customerReference = '')
     {
         $this->customerReference = $customerReference;
 
         return $this;
     }
 
-    public function setShipmentReference(?string $shipmentReference): self
+    public function setShipmentReference($shipmentReference = '')
     {
         $this->shipmentReference = $shipmentReference;
 
         return $this;
     }
 
-    public function setReturnDocumentType(?string $returnDocumentType): self
+    public function setReturnDocumentType($returnDocumentType = '')
     {
         $this->returnDocumentType = $returnDocumentType;
 
         return $this;
     }
 
-    public function setEmail(?string $email): self
+    public function setEmail($email = '')
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function setTelephoneNumber(?string $telephoneNumber): self
+    public function setTelephoneNumber($telephoneNumber = '')
     {
         $this->telephoneNumber = $telephoneNumber;
 
         return $this;
     }
 
-    public function setValue(?float $value): self
+    public function setValue($value = 0)
     {
         $this->value = $value;
 
         return $this;
     }
 
-    public function setWeightInGrams(?int $weightInGrams): self
+    public function setWeightInGrams($weightInGrams = 0)
     {
         $this->weightInGrams = $weightInGrams;
 
         return $this;
     }
 
-    public function setCustomsDocument(?CustomsDocument $customsDocument): self
+    public function setCustomsDocument($customsDocument = null)
     {
         $this->customsDocument = $customsDocument;
 
@@ -139,7 +137,7 @@ class ReturnOrder implements \JsonSerializable
      *
      * @return mixed[] Serializable object properties
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return get_object_vars($this);
     }
