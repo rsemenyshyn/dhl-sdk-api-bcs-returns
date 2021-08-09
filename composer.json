@@ -18,6 +18,7 @@
         "php": ">=5.6",
         "ext-json": "*",
         "yiisoft/psr-dummy-provider": "~1.0.1",
+        "rsemenyshyn/http-factory": "*",
         "php-http/discovery": "^1.0.0",
         "php-http/httplug-bundle": "^1.15.2",
         "php-http/logger-plugin": "^1.0.0",
