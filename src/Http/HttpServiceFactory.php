@@ -25,6 +25,8 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\Authentication\BasicAuth;
 use Http\Message\Formatter\FullHttpMessageFormatter;
 use Http\Client\HttpClient;
+use PhpExtended\HttpMessage\RequestFactory;
+use PhpExtended\HttpMessage\ResponseFactory;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -70,8 +72,8 @@ class HttpServiceFactory implements ServiceFactoryInterface
         );
 
         try {
-            $requestFactory = Psr17FactoryDiscovery::findRequestFactory();
-            $streamFactory = Psr17FactoryDiscovery::findStreamFactory();
+            $requestFactory = new RequestFactory();
+            $streamFactory = new ResponseFactory();
         } catch (NotFoundException $exception) {
             throw ServiceExceptionFactory::create($exception);
         }
