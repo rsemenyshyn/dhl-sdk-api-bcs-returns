@@ -18,7 +18,7 @@
         "php": ">=5.6",
         "ext-json": "*",
         "php-http/discovery": "^1.0.0",
-        "php-http/httplug": "^2.0.0",
+        "php-http/httplug-bundle": "^1.15.2",
         "php-http/logger-plugin": "^1.0.0",
         "psr/http-client": "^1.0.0",
         "psr/http-client-implementation": "^1.0.0",
