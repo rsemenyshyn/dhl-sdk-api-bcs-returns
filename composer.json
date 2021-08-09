@@ -20,6 +20,7 @@
         "php-http/discovery": "^1.0.0",
         "php-http/httplug-bundle": "^1.15.2",
         "php-http/logger-plugin": "^1.0.0",
+        "php-extended/php-http-message-factory-psr17": "^1.0.1"
         "psr/http-client": "^1.0.0",
         "psr/http-client-implementation": "^1.0.0",
         "psr/http-factory": "^1.0.0",
