@@ -55,11 +55,11 @@ class SimpleAddress implements \JsonSerializable
     private $name3;
 
     public function __construct(
-        string $name1,
-        string $streetName,
-        string $houseNumber,
-        string $postCode,
-        string $city
+        $name1,
+        $streetName,
+        $houseNumber,
+        $postCode,
+        $city
     ) {
         $this->name1 = $name1;
         $this->streetName = $streetName;
