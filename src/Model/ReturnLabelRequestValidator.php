@@ -14,8 +14,7 @@ use Dhl\Sdk\Paket\Retoure\Exception\RequestValidatorException;
  * @author Andreas Müller <andreas.mueller@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-class ReturnLabelRequestValidator
-{
+class ReturnLabelRequestValidator {
     const MSG_RECEIVER_ID_REQUIRED = 'Receiver ID is required.';
     const MSG_SHIPPER_ADDRESS_REQUIRED = 'Shipper address is required.';
     const MSG_SHIPPER_ADDRESS_FIELD_REQUIRED = "'%s' is required for the shipper address.";
@@ -31,8 +30,7 @@ class ReturnLabelRequestValidator
      *
      * @throws RequestValidatorException
      */
-    public static function validate(array $data)
-    {
+    public static function validate(array $data) {
         if (empty($data['receiverId'])) {
             throw new RequestValidatorException(self::MSG_RECEIVER_ID_REQUIRED);
         }

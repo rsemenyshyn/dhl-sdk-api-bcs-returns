@@ -49,13 +49,7 @@ class CustomsDocumentPosition implements \JsonSerializable
      */
     private $tarifNumber;
 
-    public function __construct(
-        int $count,
-        int $weightInGrams,
-        string $positionDescription,
-        float $value,
-        string $articleReference
-    ) {
+    public function __construct($count, $weightInGrams, $positionDescription, $value, $articleReference) {
         $this->count = $count;
         $this->weightInGrams = $weightInGrams;
         $this->positionDescription = $positionDescription;
@@ -63,17 +57,13 @@ class CustomsDocumentPosition implements \JsonSerializable
         $this->articleReference = $articleReference;
     }
 
-    public function setOriginCountry($originCountry = '')
-    {
+    public function setOriginCountry($originCountry = '') {
         $this->originCountry = $originCountry;
-
         return $this;
     }
 
-    public function setTariffNumber($tariffNumber = '')
-    {
+    public function setTariffNumber($tariffNumber = '') {
         $this->tarifNumber = $tariffNumber;
-
         return $this;
     }
 
@@ -82,8 +72,7 @@ class CustomsDocumentPosition implements \JsonSerializable
      *
      * @return mixed[] Serializable object properties
      */
-    public function jsonSerialize()
-    {
+    public function jsonSerialize() {
         return get_object_vars($this);
     }
 }

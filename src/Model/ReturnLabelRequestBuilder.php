@@ -32,31 +32,24 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
         return $this;
     }
 
-    public function setShipmentReference($shipmentReference)
-    {
+    public function setShipmentReference($shipmentReference) {
         $this->data['shipmentReference'] = $shipmentReference;
-
         return $this;
     }
 
-    public function setDocumentTypePdf()
-    {
+    public function setDocumentTypePdf() {
         $this->data['returnDocumentType'] = ReturnOrder::DOCUMENT_TYPE_PDF;
-
         return $this;
     }
 
-    public function setDocumentTypeQr()
-    {
+    public function setDocumentTypeQr() {
         $this->data['returnDocumentType'] = ReturnOrder::DOCUMENT_TYPE_QR;
-
         return $this;
     }
 
     public function setPackageDetails($weightInGrams = null, $amount = null) {
         $this->data['package']['weight'] = $weightInGrams;
         $this->data['package']['amount'] = $amount;
-
         return $this;
     }
 
@@ -86,11 +79,9 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
         return $this;
     }
 
-    public function setShipperContact($email, $phoneNumber = null)
-    {
+    public function setShipperContact($email, $phoneNumber = null) {
         $this->data['shipper']['contact']['email'] = $email;
         $this->data['shipper']['contact']['phoneNumber'] = $phoneNumber;
-
         return $this;
     }
 
@@ -136,8 +127,7 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
         return $this;
     }
 
-    public function create()
-    {
+    public function create() {
         ReturnLabelRequestValidator::validate($this->data);
 
         $country = new Country($this->data['shipper']['address']['countryCode']);

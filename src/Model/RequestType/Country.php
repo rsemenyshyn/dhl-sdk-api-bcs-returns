@@ -12,8 +12,7 @@ namespace Dhl\Sdk\Paket\Retoure\Model\RequestType;
  * @author Andreas Müller <andreas.mueller@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-class Country implements \JsonSerializable
-{
+class Country implements \JsonSerializable {
     /**
      * @var string
      */
@@ -29,22 +28,17 @@ class Country implements \JsonSerializable
      */
     private $state;
 
-    public function __construct($countryISOCode)
-    {
+    public function __construct($countryISOCode) {
         $this->countryISOCode = $countryISOCode;
     }
 
-    public function setCountry($country = '')
-    {
+    public function setCountry($country = '') {
         $this->country = $country;
-
         return $this;
     }
 
-    public function setState($state = '')
-    {
+    public function setState($state = '') {
         $this->state = $state;
-
         return $this;
     }
 
@@ -53,8 +47,7 @@ class Country implements \JsonSerializable
      *
      * @return mixed[] Serializable object properties
      */
-    public function jsonSerialize()
-    {
+    public function jsonSerialize() {
         return get_object_vars($this);
     }
 }

@@ -12,8 +12,7 @@ namespace Dhl\Sdk\Paket\Retoure\Model\RequestType;
  * @author Andreas Müller <andreas.mueller@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-class CustomsDocument implements \JsonSerializable
-{
+class CustomsDocument implements \JsonSerializable {
     /**
      * @var string $currency Currency the returned goods were payed in: [EUR, GBP, CHF]
      */
@@ -59,52 +58,38 @@ class CustomsDocument implements \JsonSerializable
      * @param string $currency
      * @param CustomsDocumentPosition[] $positions
      */
-    public function __construct(
-        string $currency,
-        array $positions
-    ) {
+    public function __construct($currency, array $positions) {
         $this->currency = $currency;
         $this->positions = $positions;
     }
 
-    public function setOriginalShipmentNumber($originalShipmentNumber = '')
-    {
+    public function setOriginalShipmentNumber($originalShipmentNumber = '') {
         $this->originalShipmentNumber = $originalShipmentNumber;
-
         return $this;
     }
 
-    public function setOriginalOperator($originalOperator = '')
-    {
+    public function setOriginalOperator($originalOperator = '') {
         $this->originalOperator = $originalOperator;
-
         return $this;
     }
 
-    public function setAccompanyingDocument($accompanyingDocument = '')
-    {
+    public function setAccompanyingDocument($accompanyingDocument = '') {
         $this->acommpanyingDocument = $accompanyingDocument;
-
         return $this;
     }
 
-    public function setOriginalInvoiceNumber($originalInvoiceNumber = '')
-    {
+    public function setOriginalInvoiceNumber($originalInvoiceNumber = '') {
         $this->originalInvoiceNumber = $originalInvoiceNumber;
-
         return $this;
     }
-    public function setOriginalInvoiceDate($originalInvoiceDate = '')
-    {
+
+    public function setOriginalInvoiceDate($originalInvoiceDate = '') {
         $this->originalInvoiceDate = $originalInvoiceDate;
-
         return $this;
     }
 
-    public function setComment($comment = '')
-    {
+    public function setComment($comment = '') {
         $this->comment = $comment;
-
         return $this;
     }
 
@@ -113,8 +98,7 @@ class CustomsDocument implements \JsonSerializable
      *
      * @return mixed[] Serializable object properties
      */
-    public function jsonSerialize()
-    {
+    public function jsonSerialize() {
         return get_object_vars($this);
     }
 }

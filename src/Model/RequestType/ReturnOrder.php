@@ -12,8 +12,8 @@ namespace Dhl\Sdk\Paket\Retoure\Model\RequestType;
  * @author Andreas Müller <andreas.mueller@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-class ReturnOrder implements \JsonSerializable
-{
+
+class ReturnOrder implements \JsonSerializable {
     const DOCUMENT_TYPE_PDF = 'SHIPMENT_LABEL';
     const DOCUMENT_TYPE_QR = 'QR_LABEL';
     const DOCUMENT_TYPE_BOTH = 'BOTH';
@@ -68,67 +68,48 @@ class ReturnOrder implements \JsonSerializable
      */
     private $customsDocument;
 
-    public function __construct(
-        string $receiverId,
-        SimpleAddress $senderAddress
-    ) {
+    public function __construct($receiverId, $senderAddress) {
         $this->receiverId = $receiverId;
         $this->senderAddress = $senderAddress;
     }
 
-    public function setCustomerReference($customerReference = '')
-    {
+    public function setCustomerReference($customerReference = '') {
         $this->customerReference = $customerReference;
-
         return $this;
     }
 
-    public function setShipmentReference($shipmentReference = '')
-    {
+    public function setShipmentReference($shipmentReference = '') {
         $this->shipmentReference = $shipmentReference;
-
         return $this;
     }
 
-    public function setReturnDocumentType($returnDocumentType = '')
-    {
+    public function setReturnDocumentType($returnDocumentType = '') {
         $this->returnDocumentType = $returnDocumentType;
-
         return $this;
     }
 
-    public function setEmail($email = '')
-    {
+    public function setEmail($email = '') {
         $this->email = $email;
-
         return $this;
     }
 
-    public function setTelephoneNumber($telephoneNumber = '')
-    {
+    public function setTelephoneNumber($telephoneNumber = '') {
         $this->telephoneNumber = $telephoneNumber;
-
         return $this;
     }
 
-    public function setValue($value = 0)
-    {
+    public function setValue($value = 0) {
         $this->value = $value;
-
         return $this;
     }
 
-    public function setWeightInGrams($weightInGrams = 0)
-    {
+    public function setWeightInGrams($weightInGrams = 0) {
         $this->weightInGrams = $weightInGrams;
-
         return $this;
     }
 
-    public function setCustomsDocument($customsDocument = null)
-    {
+    public function setCustomsDocument($customsDocument = null) {
         $this->customsDocument = $customsDocument;
-
         return $this;
     }
 
@@ -137,8 +118,7 @@ class ReturnOrder implements \JsonSerializable
      *
      * @return mixed[] Serializable object properties
      */
-    public function jsonSerialize()
-    {
+    public function jsonSerialize() {
         return get_object_vars($this);
     }
 }
