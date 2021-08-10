@@ -11,8 +11,7 @@ use Psr\Http\Message\UriFactoryInterface;
  *
  * @author Anastaszor
  */
-class UriCarrier implements Stringable
-{
+class UriCarrier {
 
     /**
      * The current uri.
