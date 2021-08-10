@@ -13,7 +13,7 @@ use Psr\Http\Message\UriInterface;
  * @author Anastaszor
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Uri extends UriInterface {
+class Uri implements UriInterface {
 
     /**
      * The list of all allowed / known schemes.
