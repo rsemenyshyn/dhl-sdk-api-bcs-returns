@@ -3,8 +3,6 @@
 namespace Dhl\Sdk\Paket\Retoure\Http\Factory;
 
 use InvalidArgumentException;
-use PhpExtended\Domain\Domain;
-use PhpExtended\Domain\DomainInterface;
 use Psr\Http\Message\UriInterface;
 
 /**
@@ -15,7 +13,7 @@ use Psr\Http\Message\UriInterface;
  * @author Anastaszor
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Uri implements UriInterface {
+class Uri implements UriFactoryInterface {
 
     /**
      * The list of all allowed / known schemes.
