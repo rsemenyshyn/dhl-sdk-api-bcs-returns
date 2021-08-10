@@ -3,7 +3,7 @@
 namespace Dhl\Sdk\Paket\Retoure\Http\Factory;
 
 use InvalidArgumentException;
-use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\UriFactoryInterface;
 
 /**
  * Uri class file.
