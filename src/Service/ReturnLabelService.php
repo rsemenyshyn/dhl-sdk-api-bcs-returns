@@ -52,11 +52,11 @@ class ReturnLabelService implements ReturnLabelServiceInterface
     private $streamFactory;
 
     public function __construct(
-        HttpClient $client,
-        string $baseUrl,
-        JsonSerializer $serializer,
-        RequestFactory $requestFactory,
-        StreamFactory $streamFactory
+        $client,
+        $baseUrl,
+        $serializer,
+        $requestFactory,
+        $streamFactory
     ) {
         $this->client = $client;
         $this->baseUrl = $baseUrl;
