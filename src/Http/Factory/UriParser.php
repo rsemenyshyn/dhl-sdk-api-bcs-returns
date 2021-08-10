@@ -152,7 +152,7 @@ class UriParser extends AbstractParser implements UriParserInterface
         if(false === $quespos) $quespos = null;
         $hashpos = \mb_strpos($data, '#');
         if(false === $hashpos) $hashpos = null;
-        $maxlength = !empty($quespos) ? $quespos : (!empty($hashpos) ? $hashpos : (int) \mb_strlen($data));
+        $maxlength = !empty($pathpos) ? $pathpos : (!empty($quespos) ? $quespos : (!empty($hashpos) ? $hashpos : (int) \mb_strlen($data)));
 
         $host = (string) \mb_substr($data, 0, $maxlength);
         $remaining = (string) \mb_substr($data, $maxlength);

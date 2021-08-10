@@ -86,39 +86,30 @@ class Domain implements DomainInterface {
             throw new InvalidArgumentException(\strtr($message, $context));
         }
 
-        for($i = 0; $i < $len; $i++)
-        {
+        for($i = 0; $i < $len; $i++) {
             $chr = $part[$i];
             $ord = \ord($chr);
             // used to be only letters as the rfc1035 specifies
             // but there are real domains that begin with a digit
-            if(0 === $i) // first character, only letters (or digits)
-            {
-                if(!$this->isLetterOrDigit($ord))
-                {
-                    $message = 'The given character {i} of part nb. {k} should be a letter, "{chr}" given.';
-                    $context = ['{i}' => $i + 1, '{k}' => $partNb + 1, '{chr}' => $chr];
-
+            if(0 === $i) { // first character, only letters (or digits)
+                if(!$this->isLetterOrDigit($ord)) {
+                    $message = 'The given character {i} of part nb. {k} should be a letter or a digit, "{chr}" given. Part: "{part}"';
+                    $context = ['{part}' => $part, '{i}' => $i + 1, '{k}' => $partNb + 1, '{chr}' => $chr];
                     throw new InvalidArgumentException(\strtr($message, $context));
                 }
             }
 
-            if($len - 1 === $i) // last character
-            {
-                if(!$this->isLetterOrDigit($ord))
-                {
-                    $message = 'The given character {i} of part nb. {k} should be a letter or a digit, "{chr}" given.';
-                    $context = ['{i}' => $i + 1, '{k}' => $partNb + 1, '{chr}' => $chr];
-
+            if($len - 1 === $i) { // last character
+                if(!$this->isLetterOrDigit($ord)) {
+                    $message = 'The given character {i} of part nb. {k} should be a letter or a digit, "{chr}" given. Part: "{part}"';
+                    $context = ['{part}' => $part, '{i}' => $i + 1, '{k}' => $partNb + 1, '{chr}' => $chr];
                     throw new InvalidArgumentException(\strtr($message, $context));
                 }
             }
 
-            if(!$this->isLetterOrDigitOrHyphen($ord))
-            {
-                $message = 'The given character {i} of part nb. {k} should be a letter, digit or hyphen, "{chr}" given.';
-                $context = ['{i}' => $i + 1, '{k}' => $partNb + 1, '{chr}' => $chr];
-
+            if(!$this->isLetterOrDigitOrHyphen($ord))  {
+                $message = 'The given character {i} of part nb. {k} should be a letter or a digit, "{chr}" given. Part: "{part}"';
+                $context = ['{part}' => $part, '{i}' => $i + 1, '{k}' => $partNb + 1, '{chr}' => $chr];
                 throw new InvalidArgumentException(\strtr($message, $context));
             }
         }
