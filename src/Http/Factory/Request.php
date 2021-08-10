@@ -4,7 +4,7 @@ namespace Dhl\Sdk\Paket\Retoure\Http\Factory;
 
 use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\UriFactoryInterface;
+use Psr\Http\Message\UriInterface;
 
 /**
  * Request class file.
@@ -132,7 +132,7 @@ class Request extends Message implements RequestInterface {
      * {@inheritDoc}
      * @see \Psr\Http\Message\RequestInterface::withUri()
      */
-    public function withUri(UriFactoryInterface $uri, $preserveHost = false)
+    public function withUri(UriInterface $uri, $preserveHost = false)
     {
         if($uri === $this->_uri)
             return $this;
