@@ -6,15 +6,14 @@
 
 namespace Dhl\Sdk\Paket\Retoure\Service;
 
-use Dhl\Sdk\Paket\Retoure\Api\Data\ConfirmationInterface;
 use Dhl\Sdk\Paket\Retoure\Api\ReturnLabelServiceInterface;
 use Dhl\Sdk\Paket\Retoure\Exception\AuthenticationErrorException;
 use Dhl\Sdk\Paket\Retoure\Exception\DetailedErrorException;
 use Dhl\Sdk\Paket\Retoure\Exception\ServiceExceptionFactory;
 use Dhl\Sdk\Paket\Retoure\Service\ReturnLabelService\Confirmation;
 use Dhl\Sdk\Paket\Retoure\Serializer\JsonSerializer;
-use PhpExtended\HttpMessage\RequestFactory;
-use PhpExtended\HttpMessage\StreamFactory;
+use Dhl\Sdk\Paket\Retoure\Http\Factory\RequestFactory;
+use Dhl\Sdk\Paket\Retoure\Http\Factory\StreamFactory;
 use Http\Client\HttpClient;
 
 /**

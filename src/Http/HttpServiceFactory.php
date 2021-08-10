@@ -11,6 +11,8 @@ use Dhl\Sdk\Paket\Retoure\Exception\ServiceExceptionFactory;
 use Dhl\Sdk\Paket\Retoure\Http\ClientPlugin\ReturnLabelErrorPlugin;
 use Dhl\Sdk\Paket\Retoure\Serializer\JsonSerializer;
 use Dhl\Sdk\Paket\Retoure\Service\ReturnLabelService;
+use Dhl\Sdk\Paket\Retoure\Http\Factory\RequestFactory;
+use Dhl\Sdk\Paket\Retoure\Http\Factory\StreamFactory;
 use Http\Client\Common\Plugin\AuthenticationPlugin;
 use Http\Client\Common\Plugin\ContentLengthPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
@@ -21,8 +23,6 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\Authentication\BasicAuth;
 use Http\Message\Formatter\FullHttpMessageFormatter;
 use Http\Client\HttpClient;
-use PhpExtended\HttpMessage\RequestFactory;
-use PhpExtended\HttpMessage\StreamFactory;
 use Psr\Log\LoggerInterface;
 
 /**

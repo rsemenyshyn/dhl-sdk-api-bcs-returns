@@ -6,8 +6,6 @@
 
 namespace Dhl\Sdk\Paket\Retoure\Service;
 
-use Dhl\Sdk\Paket\Retoure\Api\Data\AuthenticationStorageInterface;
-use Dhl\Sdk\Paket\Retoure\Api\ReturnLabelServiceInterface;
 use Dhl\Sdk\Paket\Retoure\Api\ServiceFactoryInterface;
 use Dhl\Sdk\Paket\Retoure\Exception\ServiceExceptionFactory;
 use Dhl\Sdk\Paket\Retoure\Http\HttpServiceFactory;
