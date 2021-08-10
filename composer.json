@@ -21,7 +21,7 @@
         "php-http/discovery": "^1.0.0",
         "php-http/httplug-bundle": "^1.15.2",
         "php-http/logger-plugin": "^1.0.0",
-        "rsemenyshyn/http-factory": "*",
+        "rsemenyshyn/http-factory": "dev-master",
         "psr/log": "^1.1.0"
     },
     "autoload": {
