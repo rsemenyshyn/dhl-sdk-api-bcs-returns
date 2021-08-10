@@ -49,7 +49,7 @@ class UriCarrier {
      * @param string $remaining
      * @param integer $index
      */
-    public function __construct($uri, string $base, string $remaining, int $index)
+    public function __construct($uri, $base, $remaining, $index)
     {
         $this->_uri = $uri;
         $this->_base = $base;
