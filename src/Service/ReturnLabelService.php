@@ -13,9 +13,8 @@ use Dhl\Sdk\Paket\Retoure\Exception\DetailedErrorException;
 use Dhl\Sdk\Paket\Retoure\Exception\ServiceExceptionFactory;
 use Dhl\Sdk\Paket\Retoure\Service\ReturnLabelService\Confirmation;
 use Dhl\Sdk\Paket\Retoure\Serializer\JsonSerializer;
-use Psr\Http\Client\ClientExceptionInterface;
-use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\StreamFactoryInterface;
+use PhpExtended\HttpMessage\RequestFactory;
+use PhpExtended\HttpMessage\StreamFactory;
 use Http\Client\HttpClient;
 
 /**
@@ -44,12 +43,12 @@ class ReturnLabelService implements ReturnLabelServiceInterface
     private $serializer;
 
     /**
-     * @var RequestFactoryInterface
+     * @var RequestFactory
      */
     private $requestFactory;
 
     /**
-     * @var StreamFactoryInterface
+     * @var StreamFactory
      */
     private $streamFactory;
 
@@ -57,8 +56,8 @@ class ReturnLabelService implements ReturnLabelServiceInterface
         HttpClient $client,
         string $baseUrl,
         JsonSerializer $serializer,
-        RequestFactoryInterface $requestFactory,
-        StreamFactoryInterface $streamFactory
+        RequestFactory $requestFactory,
+        StreamFactory $streamFactory
     ) {
         $this->client = $client;
         $this->baseUrl = $baseUrl;
@@ -83,8 +82,6 @@ class ReturnLabelService implements ReturnLabelServiceInterface
             throw ServiceExceptionFactory::createAuthenticationException($exception);
         } catch (DetailedErrorException $exception) {
             throw ServiceExceptionFactory::createDetailedServiceException($exception);
-        } catch (ClientExceptionInterface $exception) {
-            throw ServiceExceptionFactory::createServiceException($exception);
         } catch (\Exception $exception) {
             throw ServiceExceptionFactory::create($exception);
         }

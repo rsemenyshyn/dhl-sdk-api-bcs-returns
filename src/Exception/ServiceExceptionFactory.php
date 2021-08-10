@@ -6,7 +6,6 @@
 
 namespace Dhl\Sdk\Paket\Retoure\Exception;
 
-use Psr\Http\Client\ClientExceptionInterface;
 
 /**
  * Class ServiceExceptionFactory
@@ -32,10 +31,10 @@ class ServiceExceptionFactory
     /**
      * Create a HTTP client exception.
      *
-     * @param ClientExceptionInterface $exception
+     * @param \Exception $exception
      * @return ServiceException
      */
-    public static function createServiceException(ClientExceptionInterface $exception)
+    public static function createServiceException($exception)
     {
         if (!$exception instanceof \Exception) {
             return new ServiceException('Unknown exception occurred', 0);
