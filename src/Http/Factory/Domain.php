@@ -65,7 +65,7 @@ class Domain implements DomainInterface {
      * @return string
      * @throws InvalidArgumentException
      */
-    protected function checkPart(int $partNb, string $part)
+    protected function checkPart($partNb, $part)
     {
         // RFC1034: <label> ::= <letter> [ [ <ldh-str> ] <let-dig> ]
 
@@ -123,7 +123,7 @@ class Domain implements DomainInterface {
      * @param integer $ord
      * @return boolean
      */
-    protected function isLetterOrDigitOrHyphen(int $ord)
+    protected function isLetterOrDigitOrHyphen($ord)
     {
         return $this->isHyphen($ord) || $this->isLetterOrDigit($ord);
     }
@@ -134,7 +134,7 @@ class Domain implements DomainInterface {
      * @param integer $ord
      * @return boolean
      */
-    protected function isLetterOrDigit(int $ord)
+    protected function isLetterOrDigit($ord)
     {
         return $this->isLetter($ord) || $this->isDigit($ord);
     }
@@ -145,7 +145,7 @@ class Domain implements DomainInterface {
      * @param integer $ord
      * @return boolean
      */
-    protected function isLetter(int $ord)
+    protected function isLetter($ord)
     {
         return (65 <= $ord && 90 >= $ord) || (97 <= $ord && 122 >= $ord);
     }
@@ -156,7 +156,7 @@ class Domain implements DomainInterface {
      * @param integer $ord
      * @return boolean
      */
-    protected function isDigit(int $ord)
+    protected function isDigit($ord)
     {
         return 48 <= $ord && 57 >= $ord;
     }
@@ -167,7 +167,7 @@ class Domain implements DomainInterface {
      * @param integer $ord
      * @return boolean
      */
-    protected function isHyphen(int $ord)
+    protected function isHyphen($ord)
     {
         return 45 === $ord;
     }
@@ -194,7 +194,7 @@ class Domain implements DomainInterface {
      * {@inheritDoc}
      * @see \PhpExtended\Domain\DomainInterface::append()
      */
-    public function append(string $part)
+    public function append($part)
     {
         $newParts = $this->_parts;
 

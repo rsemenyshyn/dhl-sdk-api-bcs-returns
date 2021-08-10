@@ -36,7 +36,7 @@ interface DomainInterface {
      * @return DomainInterface
      * @throws InvalidArgumentException if the part is invalid
      */
-    public function append(string $part);
+    public function append($part);
 
     /**
      * Gets a new domain name with the more specific part stripped of this
