@@ -3,6 +3,7 @@
 namespace Dhl\Sdk\Paket\Retoure\Http\Factory;
 
 use InvalidArgumentException;
+use Psr\Http\Message\UriInterface;
 
 /**
  * Uri class file.
@@ -12,7 +13,7 @@ use InvalidArgumentException;
  * @author Anastaszor
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Uri {
+class Uri extends UriInterface {
 
     /**
      * The list of all allowed / known schemes.
