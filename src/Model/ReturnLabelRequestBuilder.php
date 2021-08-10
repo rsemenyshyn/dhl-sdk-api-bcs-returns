@@ -186,14 +186,14 @@ class ReturnLabelRequestBuilder implements ReturnLabelRequestBuilderInterface
 
         $returnOrder = new ReturnOrder($this->data['receiverId'], $senderAddress);
         $returnOrder->setCustomerReference($this->data['billingNumber']);
-        $returnOrder->setShipmentReference($this->data['shipmentReference'] ? $this->data['shipmentReference'] : null);
-        $returnOrder->setReturnDocumentType($this->data['returnDocumentType'] ? $this->data['returnDocumentType'] : ReturnOrder::DOCUMENT_TYPE_BOTH);
+        $returnOrder->setShipmentReference(!empty($this->data['shipmentReference']) ? $this->data['shipmentReference'] : null);
+        $returnOrder->setReturnDocumentType(!empty($this->data['returnDocumentType']) ? $this->data['returnDocumentType'] : ReturnOrder::DOCUMENT_TYPE_BOTH);
 
-        $returnOrder->setEmail($this->data['shipper']['contact']['email'] ? $this->data['shipper']['contact']['email'] : null);
-        $returnOrder->setTelephoneNumber($this->data['shipper']['contact']['phoneNumber'] ? $this->data['shipper']['contact']['phoneNumber'] : null);
+        $returnOrder->setEmail(!empty($this->data['shipper']) && !empty($this->data['shipper']['contact']) && !empty($this->data['shipper']['contact']['email']) ? $this->data['shipper']['contact']['email'] : null);
+        $returnOrder->setTelephoneNumber(!empty($this->data['shipper']) && !empty($this->data['shipper']['contact']) && !empty($this->data['shipper']['contact']['phoneNumber']) ? $this->data['shipper']['contact']['phoneNumber'] : null);
 
-        $returnOrder->setValue($this->data['package']['amount'] ? $this->data['package']['amount'] : null);
-        $returnOrder->setWeightInGrams($this->data['package']['weight'] ? $this->data['package']['weight'] : null);
+        $returnOrder->setValue(!empty($this->data['package']) && !empty($this->data['package']['amount']) ? $this->data['package']['amount'] : null);
+        $returnOrder->setWeightInGrams(!empty($this->data['package']) && !empty($this->data['package']['weight']) ? $this->data['package']['weight'] : null);
         $returnOrder->setCustomsDocument($customsDocument);
 
         $this->data = [];
