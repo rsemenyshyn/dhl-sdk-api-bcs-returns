@@ -21,13 +21,7 @@ class UploadedFileFactory implements UploadedFileFactoryInterface
 	 * {@inheritDoc}
 	 * @see \Psr\Http\Message\UploadedFileFactoryInterface::createUploadedFile()
 	 */
-	public function createUploadedFile(
-		StreamInterface $stream,
-		int $size = null,
-		int $error = \UPLOAD_ERR_OK,
-		string $clientFilename = null,
-		string $clientMediaType = null
-	)
+	public function createUploadedFile($stream, $size = null, $error = \UPLOAD_ERR_OK, $clientFilename = null, $clientMediaType = null)
 	{
 		return new UploadedFile($clientFilename, $clientFilename, $clientMediaType, $size, $error, $stream);
 	}

@@ -20,7 +20,7 @@ class ServerRequestFactory implements ServerRequestFactoryInterface
 	 * {@inheritDoc}
 	 * @see \Psr\Http\Message\ServerRequestFactoryInterface::createServerRequest()
 	 */
-	public function createServerRequest(string $method, $uri, array $serverParams = [])
+	public function createServerRequest($method, $uri, array $serverParams = [])
 	{
 		$sr = new ServerRequest();
 		if(isset($serverParams['_COOKIE']) && is_array($serverParams['_COOKIE']))

@@ -20,7 +20,7 @@ class RequestFactory implements RequestFactoryInterface
 	 * {@inheritDoc}
 	 * @see \Psr\Http\Message\RequestFactoryInterface::createRequest()
 	 */
-	public function createRequest(string $method, $uri)
+	public function createRequest($method, $uri)
 	{
 		$request = new Request();
 		$request = $request->withMethod($method);

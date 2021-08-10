@@ -20,7 +20,7 @@ class ResponseFactory implements ResponseFactoryInterface
 	 * {@inheritDoc}
 	 * @see \Psr\Http\Message\ResponseFactoryInterface::createResponse()
 	 */
-	public function createResponse(int $code = 200, string $reasonPhrase = '')
+	public function createResponse($code = 200, $reasonPhrase = '')
 	{
 		$response = new Response();
 		$response = $response->withStatus($code, $reasonPhrase);
