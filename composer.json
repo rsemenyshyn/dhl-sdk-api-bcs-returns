@@ -1,17 +1,22 @@
 {
     "name": "rsemenyshyn/dhl-sdk-api-returns",
-    "description": "DHL Paket Retoure API SDK",
+    "description": "DHL Paket Retoure API SDK, froked and adjusted to be friendly with PHP 5.6",
     "license": "MIT",
     "keywords": [
         "php",
         "sdk",
-        "DHL"
+        "DHL",
+        "php56"
     ],
     "homepage": "https://entwickler.dhl.de/group/ep/wsapis/retouren",
     "authors": [
         {
             "name": "Christoph Aßmann",
             "email": "christoph.assmann@netresearch.de"
+        },
+        {
+            "name": "Rostyslav Semenzshyn",
+            "email": "ripka.ua@gmail.com"
         }
     ],
     "require": {
@@ -27,16 +32,6 @@
     "autoload": {
         "psr-4": {
             "Dhl\\Sdk\\Paket\\Retoure\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Dhl\\Sdk\\Paket\\Retoure\\Test\\": "test/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "2.0.x-dev"
         }
     }
 }
