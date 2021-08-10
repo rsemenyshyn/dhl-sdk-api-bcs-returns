@@ -2,7 +2,6 @@
 
 namespace Dhl\Sdk\Paket\Retoure\Http\Factory;
 
-use PhpExtended\Parser\ParserInterface;
 use Psr\Http\Message\UriFactoryInterface;
 
 /**
