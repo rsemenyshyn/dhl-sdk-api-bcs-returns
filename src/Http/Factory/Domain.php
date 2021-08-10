@@ -185,7 +185,7 @@ class Domain implements DomainInterface {
      * {@inheritDoc}
      * @see \PhpExtended\Domain\DomainInterface::getDepths()
      */
-    public function getDepths() : int
+    public function getDepths()
     {
         return \count($this->_parts);
     }
