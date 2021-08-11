@@ -36,12 +36,7 @@ class Confirmation implements ConfirmationInterface
      */
     private $routingCode;
 
-    public function __construct(
-        string $shipmentNumber,
-        string $labelData,
-        string $qrLabelData,
-        string $routingCode
-    ) {
+    public function __construct($shipmentNumber, $labelData, $qrLabelData, $routingCode) {
         $this->shipmentNumber = $shipmentNumber;
         $this->labelData = $labelData;
         $this->qrLabelData = $qrLabelData;
