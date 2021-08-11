@@ -52,7 +52,7 @@ class JsonSerializer
      * @param string $jsonResponse
      * @return string[]
      */
-    public function decode(string $jsonResponse)
+    public function decode($jsonResponse)
     {
         return \json_decode($jsonResponse, true);
     }
